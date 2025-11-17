@@ -7,7 +7,18 @@ import 'spiritual_experience_card.dart';
 /// Spiritual Experiences Section Widget
 /// Displays a grid of spiritual experience cards
 class SpiritualExperiencesSection extends StatelessWidget {
-  const SpiritualExperiencesSection({super.key});
+  final VoidCallback? onTempleDarshanTap;
+  final VoidCallback? onAartiTimingTap;
+  final VoidCallback? onSpiritualGuideTap;
+  final VoidCallback? onPujaRitualsTap;
+
+  const SpiritualExperiencesSection({
+    super.key,
+    this.onTempleDarshanTap,
+    this.onAartiTimingTap,
+    this.onSpiritualGuideTap,
+    this.onPujaRitualsTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -31,32 +42,36 @@ class SpiritualExperiencesSection extends StatelessWidget {
           // 2x2 Grid
           Row(
             children: [
-              const SpiritualExperienceCard(
+              SpiritualExperienceCard(
                 iconPath: 'assets/svg/om.svg',
                 title: 'Temple Darshan',
                 subtitle: 'Live slots available',
+                onTap: onTempleDarshanTap,
               ),
               SizedBox(width: 12.w),
-              const SpiritualExperienceCard(
+              SpiritualExperienceCard(
                 iconPath: 'assets/svg/arti.svg',
                 title: 'Aarti Timing',
                 subtitle: 'Next timing',
+                onTap: onAartiTimingTap,
               ),
             ],
           ),
           SizedBox(height: 12.h),
           Row(
             children: [
-              const SpiritualExperienceCard(
+              SpiritualExperienceCard(
                 iconPath: 'assets/svg/person.svg',
                 title: 'Spiritual Guide',
                 subtitle: 'Local experts',
+                onTap: onSpiritualGuideTap,
               ),
               SizedBox(width: 12.w),
-              const SpiritualExperienceCard(
+              SpiritualExperienceCard(
                 iconPath: 'assets/svg/puja.svg',
                 title: 'Puja Rituals',
                 subtitle: 'Book now',
+                onTap: onPujaRitualsTap,
               ),
             ],
           ),

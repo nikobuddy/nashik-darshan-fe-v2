@@ -9,17 +9,21 @@ class SpiritualExperienceCard extends StatelessWidget {
   final String iconPath;
   final String title;
   final String subtitle;
+  final VoidCallback? onTap;
 
   const SpiritualExperienceCard({
     super.key,
     required this.iconPath,
     required this.title,
     required this.subtitle,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
       width: 154.w,
       height: 100.h,
       padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h),
@@ -83,6 +87,7 @@ class SpiritualExperienceCard extends StatelessWidget {
             ],
           ),
         ],
+      ),
       ),
     );
   }

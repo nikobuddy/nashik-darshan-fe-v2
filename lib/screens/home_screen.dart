@@ -10,9 +10,12 @@ import 'package:nashik/core/widgets/home/spiritual_experiences/spiritual_experie
 import 'package:nashik/core/widgets/home/spiritual_story/spiritual_story_card.dart';
 import 'package:nashik/core/widgets/home/transparent_app_bar.dart';
 import 'package:nashik/core/widgets/home/travel_services/travel_services_section.dart';
+import 'package:nashik/screens/aarti_screen.dart';
+import 'package:nashik/screens/categories_screen.dart';
 import 'package:nashik/screens/eatery_screen.dart';
 import 'package:nashik/screens/hotels_screen.dart';
-import 'package:nashik/screens/street_food_screen.dart';
+import 'package:nashik/screens/itineraries_screen.dart';
+import 'package:nashik/screens/puja_rituals_screen.dart';
 import 'package:nashik/screens/transport_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -36,7 +39,32 @@ class HomeScreen extends StatelessWidget {
                 // Spiritual Experiences Section
                 Transform.translate(
                   offset: Offset(0, -20.h), // Move section closer to search box
-                  child: const SpiritualExperiencesSection(),
+                  child: SpiritualExperiencesSection(
+                    onAartiTimingTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const AartiScreen(),
+                        ),
+                      );
+                    },
+                    onSpiritualGuideTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ItinerariesScreen(),
+                        ),
+                      );
+                    },
+                    onPujaRitualsTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const PujaRitualsScreen(),
+                        ),
+                      );
+                    },
+                  ),
                 ),
                 // Spiritual Story of the Day Section
                 Transform.translate(
@@ -49,7 +77,8 @@ class HomeScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const StreetFoodScreen(),
+                        builder: (context) => const CategoriesScreen(),
+                        // builder: (context) => const StreetFoodScreen(),
                       ),
                     );
                   },
